@@ -43,15 +43,22 @@ jobs:
         run: weasyprint --presentational-hints index.html artifact.pdf
       - name: create-release-body
         run: script/release-body.sh
+      - name: do-git-add
+        run: git add CHANGELOG.md
+      - name: do-git-commit
+        run: >
+             git commit
+             -m'Set CHANGELOG date'
+             --author="release-on-tag <info@publiccode.net>"
+      - name: do-git-tag
+        run:  git tag ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: git-add-changes-and-push-tag
         uses: EndBug/add-and-commit@v9
         with:
-          add: CHANGELOG.md
           author_name: release-on-tag
           author_email: info@publiccode.net
           default_author: github_actions
           fetch: false
-          message: 'Set CHANGELOG date'
           tag: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
           push: --set-upstream origin main --force --tags
       - name: upload

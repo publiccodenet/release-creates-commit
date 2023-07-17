@@ -40,7 +40,7 @@ jobs:
           add: CHANGELOG.md
           author_name: release-on-tag
           message: 'Set CHANGELOG date'
-          tag: ${{ RELEASE_TAG }}
+          tag: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
           push: origin main --force
       - name: upload
         uses: softprops/action-gh-release@v1

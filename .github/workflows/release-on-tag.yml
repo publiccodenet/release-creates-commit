@@ -14,15 +14,22 @@ defaults:
 jobs:
   release-the-tag:
     runs-on: ubuntu-latest
-    outputs:
-      release_tag: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
     steps:
+      - name: Set color
+        id: random-color-generator
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
       - name: checkout
         uses: actions/checkout@v2
       - name: install-deps
         run: >
           sudo apt-get install -y
           weasyprint
+      - name: echo-github-ref
+        run: echo "${ github.ref }"
+      - name: echo-trimmed-ref
+        run: echo "RELEASE_TAG=$(echo ${ github.ref } | sed -e's@.*release-@@')"
       - name: trim-and-set-release-tag
         id: trim-and-set-release-tag
         run: >

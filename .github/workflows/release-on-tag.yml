@@ -60,7 +60,6 @@ jobs:
           author_email: info@publiccode.net
           default_author: github_actions
           fetch: false
-          tag: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
           push: --set-upstream origin main --force --tags
       - name: upload
         uses: softprops/action-gh-release@v1

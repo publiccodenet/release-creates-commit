@@ -27,13 +27,13 @@ jobs:
           sudo apt-get install -y
           weasyprint
       - name: echo-github-ref
-        run: echo "${ github.ref }"
+        run: echo "${{ github.ref }}"
       - name: echo-trimmed-ref
-        run: echo "RELEASE_TAG=$(echo ${ github.ref } | sed -e's@.*release-@@')"
+        run: echo "RELEASE_TAG=$(echo ${{ github.ref }} | sed -e's@.*release-@@')"
       - name: trim-and-set-release-tag
         id: trim-and-set-release-tag
         run: >
-          echo "RELEASE_TAG=$(echo ${ github.ref } | sed -e's@.*release-@@')"
+          echo "RELEASE_TAG=$(echo ${{ github.ref }} | sed -e's@.*release-@@')"
           >> $GITHUB_OUTPUT
       - name: echo-output
         run: echo TAG ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}

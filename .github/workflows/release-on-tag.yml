@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2021-2023 The Foundation for Public Code <info@publiccode.net>, https://standard.publiccode.net/AUTHORS
+
+name: release-on-tag
+on:
+  push:
+    tags:
+      - "release-*.*.*" # tag example: release-0.12.1
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  release-the-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install-deps
+        run: >
+          sudo apt-get install -y
+          weasyprint
+      - name: trim-and-set-release-tag
+        run: >
+          echo ${{ github.ref }}
+          | sed -e's@.*release-\(.*\)@RELEASE_TAG=\1@'
+          >> ${{ GITHUB_OUTPUT }}
+      - name: update-date
+        run: script/update-changelog-date.sh
+      - name: create-artifact.pdf
+        run: weasyprint --presentational-hints index.html artifact.pdf
+      - name: create-release-body
+        run: script/release-body.sh
+      - name: git-add-changes-and-push-tag
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: CHANGELOG.md
+          author_name: release-on-tag
+          message: 'Set CHANGELOG date'
+          tag: ${{ RELEASE_TAG }}
+          push: origin main --force
+      - name: upload
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ RELEASE_TAG }}
+          prerelease: true
+          files: |
+            artifact.pdf
+          body_path: release.body

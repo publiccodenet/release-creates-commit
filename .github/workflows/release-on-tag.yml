@@ -24,10 +24,10 @@ jobs:
           sudo apt-get install -y
           weasyprint
       - name: trim-and-set-release-tag
+        id: trim-and-set-release-tag
         run: >
-          echo ${{ github.ref }}
-          | sed -e's@.*release-\(.*\)@RELEASE_TAG=\1@'
-          >> "$GITHUB_OUTPUT"
+          echo "RELEASE_TAG=$(echo ${ github.ref } | sed -e's@.*release-@@')"
+          >> $GITHUB_OUTPUT
       - name: echo-output
         run: echo TAG ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: update-date

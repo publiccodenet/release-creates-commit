@@ -53,7 +53,7 @@ jobs:
           fetch: false
           message: 'Set CHANGELOG date'
           tag: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
-          push: origin main --force --tags
+          push: --set-upstream origin main --force --tags
       - name: upload
         uses: softprops/action-gh-release@v1
         with:

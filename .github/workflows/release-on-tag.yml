@@ -14,6 +14,8 @@ defaults:
 jobs:
   release-the-tag:
     runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -43,7 +45,7 @@ jobs:
       - name: upload
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ RELEASE_TAG }}
+          tag_name: ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
           prerelease: true
           files: |
             artifact.pdf

@@ -43,13 +43,14 @@ jobs:
         run: weasyprint --presentational-hints index.html artifact.pdf
       - name: create-release-body
         run: script/release-body.sh
+      - name: set-git-user-email
+        run: git config user.email "info@publiccode.net"
+      - name: set-git-user-name
+        run: git config user.name "release-on-tag"
       - name: do-git-add
         run: git add CHANGELOG.md
       - name: do-git-commit
-        run: >
-             git commit
-             -m'Set CHANGELOG date'
-             --author="release-on-tag <info@publiccode.net>"
+        run: git commit -m'Set CHANGELOG date'
       - name: do-git-tag
         run:  git tag ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: git-add-changes-and-push-tag

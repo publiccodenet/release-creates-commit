@@ -27,7 +27,7 @@ jobs:
         run: >
           echo ${{ github.ref }}
           | sed -e's@.*release-\(.*\)@RELEASE_TAG=\1@'
-          >> ${{ GITHUB_OUTPUT }}
+          >> "$GITHUB_OUTPUT"
       - name: update-date
         run: script/update-changelog-date.sh
       - name: create-artifact.pdf

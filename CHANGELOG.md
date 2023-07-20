@@ -9,7 +9,7 @@
 
 ## Version 0.0.7
 
-DATE-OF-RELEASE: Enforce releases happen from a release-x.y.z branch
+July 20th 2023: Enforce releases happen from a release-x.y.z branch
 
 ## Version 0.0.6
 

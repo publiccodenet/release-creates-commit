@@ -9,7 +9,7 @@
 
 ## Version 0.0.5
 
-DATE-OF-RELEASE: This changes the trigging tag pattern to be "trigger-x.y.z"
+July 20th 2023: This changes the trigging tag pattern to be "trigger-x.y.z"
 
 * Clarify intent with tag names for automation
 

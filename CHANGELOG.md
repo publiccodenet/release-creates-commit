@@ -8,7 +8,7 @@
 
 ## Version 0.0.3
 
-DATE-OF-RELEASE: This demo fixes the codebase name in the release text
+July 20th 2023: This demo fixes the codebase name in the release text
 
 * script has the `CODEBASE_NAME` in quotes now
 

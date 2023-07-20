@@ -8,9 +8,13 @@ if [ "_${VERBOSE}_" != "__" ] && [ "$VERBOSE" -gt 0 ]; then
 	set -x
 fi
 
-VERSION=$RELEASE_TAG
-
-echo "# Standard for Public Code version $VERSION" > release.body
+CODEBASE_NAME=Release Creates Commit
+VERSION=$1
+if [ "_${VERSION}_" == "__" ]; then
+	echo "No version?"
+	exit 1
+fi
+echo "# $CODEBASE_NAME version $VERSION" > release.body
 
 # strip the trailing version info if exists, e.g: '1.2.3-rc2' becomes '1.2.3'
 BASE_VERSION=$( echo "$VERSION" | sed 's/^\([0-9]*\.[0-9]*\.[0-9]*\).*/\1/' )

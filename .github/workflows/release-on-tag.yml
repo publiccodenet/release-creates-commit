@@ -50,7 +50,7 @@ jobs:
       - name: create-artifact.pdf
         run: weasyprint --presentational-hints index.html artifact.pdf
       - name: create-release-body
-        run: script/release-body.sh
+        run: script/release-body.sh ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: set-git-user-email
         run: git config user.email "info@publiccode.net"
       - name: set-git-user-name

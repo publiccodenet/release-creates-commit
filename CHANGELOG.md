@@ -7,6 +7,12 @@
 <!-- script/release-body.sh expects VERSION in the first second-level header -->
 <!-- script/update-changelog-date.sh expects DATE-OF-RELEASE and a colon -->
 
+## Version 0.0.6
+
+DATE-OF-RELEASE: This adds an SSH key to allow workflow to push to main
+
+* As `main` is now a protected branch, we need special secrets to push
+
 ## Version 0.0.5
 
 July 20th 2023: This changes the trigging tag pattern to be "trigger-x.y.z"

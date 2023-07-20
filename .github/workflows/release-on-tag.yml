@@ -38,7 +38,7 @@ jobs:
       - name: echo-output
         run: echo TAG ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: git-diff-main-0
-        run: git diff main
+        run: git diff origin/main
       - name: git-switch-main
         run: git switch main
       - name: update-date

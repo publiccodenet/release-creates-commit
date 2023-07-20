@@ -7,6 +7,10 @@
 <!-- script/release-body.sh expects VERSION in the first second-level header -->
 <!-- script/update-changelog-date.sh expects DATE-OF-RELEASE and a colon -->
 
+## Version 0.0.7
+
+DATE-OF-RELEASE: Enforce releases happen from a release-x.y.z branch
+
 ## Version 0.0.6
 
 July 20th 2023: This adds an SSH key to allow workflow to push to main

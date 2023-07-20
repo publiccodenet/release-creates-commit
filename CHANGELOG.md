@@ -7,6 +7,12 @@
 <!-- script/release-body.sh expects VERSION in the first second-level header -->
 <!-- script/update-changelog-date.sh expects DATE-OF-RELEASE and a colon -->
 
+## Version 0.0.5
+
+DATE-OF-RELEASE: This changes the trigging tag pattern to be "trigger-x.y.z"
+
+* Clarify intent with tag names for automation
+
 ## Version 0.0.4
 
 July 20th 2023: This drops the "release-0.0.4" tag after "0.0.4" is created

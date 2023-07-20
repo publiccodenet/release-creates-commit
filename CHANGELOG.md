@@ -8,7 +8,7 @@
 
 ## Version 0.0.1
 
-DATE-OF-RELEASE: This is the first demo
+$TODAYS_DATE: This is the first demo
 
 The goal of this release is to have the workflow replace the DATE-OF-RELEASE with the date it is run.
 

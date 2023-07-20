@@ -9,7 +9,7 @@
 
 ## Version 0.0.6
 
-DATE-OF-RELEASE: This adds an SSH key to allow workflow to push to main
+July 20th 2023: This adds an SSH key to allow workflow to push to main
 
 * As `main` is now a protected branch, we need special secrets to push
 

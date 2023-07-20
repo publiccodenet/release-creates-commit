@@ -65,6 +65,8 @@ jobs:
         run:  git push origin main
       - name: do-git-push-tags
         run:  git push --tags
+      - name: do-git-delete-tag
+        run:  git push origin :release-${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: upload
         uses: softprops/action-gh-release@v1
         with:

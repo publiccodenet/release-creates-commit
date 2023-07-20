@@ -5,6 +5,13 @@
 # Version history
 
 <!-- script/release-body.sh expects VERSION in the first second-level header -->
+<!-- script/update-changelog-date.sh expects DATE-OF-RELEASE and a colon -->
+
+## Version 0.0.4
+
+DATE-OF-RELEASE: This drops the "release-0.0.4" tag after "0.0.4" is created
+
+* no more "before release" tag in the tags history
 
 ## Version 0.0.3
 

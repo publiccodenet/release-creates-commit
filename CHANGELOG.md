@@ -9,7 +9,7 @@
 
 ## Version 0.0.4
 
-DATE-OF-RELEASE: This drops the "release-0.0.4" tag after "0.0.4" is created
+July 20th 2023: This drops the "release-0.0.4" tag after "0.0.4" is created
 
 * no more "before release" tag in the tags history
 

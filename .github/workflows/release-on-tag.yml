@@ -37,6 +37,10 @@ jobs:
           >> $GITHUB_OUTPUT
       - name: echo-output
         run: echo TAG ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
+      - name: git-fetch
+        run: git fetch --all
+      - name: git-branch-a
+        run: git branch --all
       - name: git-diff-main-0
         run: git diff origin/main
       - name: git-switch-main

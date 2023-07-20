@@ -65,7 +65,7 @@ jobs:
       - name: do-git-tag
         run:  git tag ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: do-git-push
-        run:  git push origin main
+        run:  git push origin release-${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}:main
       - name: do-git-push-tags
         run:  git push --tags
       - name: do-git-delete-tag

@@ -8,7 +8,7 @@
 
 ## Version 0.0.2
 
-DATE-OF-RELEASE: This demo fixes the version in the release text
+July 20th 2023: This demo fixes the version in the release text
 
 Version is now a parameter of the release-body script.
 

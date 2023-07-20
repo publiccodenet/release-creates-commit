@@ -8,7 +8,7 @@ if [ "_${VERBOSE}_" != "__" ] && [ "$VERBOSE" -gt 0 ]; then
 	set -x
 fi
 
-CODEBASE_NAME=Release Creates Commit
+CODEBASE_NAME="Release Creates Commit"
 VERSION=$1
 if [ "_${VERSION}_" == "__" ]; then
 	echo "No version?"

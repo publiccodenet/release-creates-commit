@@ -6,6 +6,12 @@
 
 <!-- script/release-body.sh expects VERSION in the first second-level header -->
 
+## Version 0.0.3
+
+DATE-OF-RELEASE: This demo fixes the codebase name in the release text
+
+* script has the `CODEBASE_NAME` in quotes now
+
 ## Version 0.0.2
 
 July 20th 2023: This demo fixes the version in the release text

@@ -38,8 +38,8 @@ jobs:
         run: git fetch --all
       - name: git-switch-release
         run: git switch release-${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
-      - name: git-pull-rebase
-        run: git pull --rebase origin main
+      - name: git-merge-main
+        run: git merge origin/main
       - name: update-date
         run: script/update-changelog-date.sh
       - name: create-artifact.pdf

@@ -36,12 +36,10 @@ jobs:
         run: echo TAG ${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
       - name: git-fetch
         run: git fetch --all
-      - name: git-branch-a
-        run: git branch --all
-      - name: git-diff-main-0
-        run: git diff origin/main
-      - name: git-switch-main
-        run: git switch main
+      - name: git-switch-release
+        run: git switch release-${{ steps.trim-and-set-release-tag.outputs.RELEASE_TAG }}
+      - name: git-pull-rebase
+        run: git pull --rebase origin main
       - name: update-date
         run: script/update-changelog-date.sh
       - name: create-artifact.pdf
